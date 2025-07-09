@@ -13,7 +13,7 @@ import (
 	"google.golang.org/protobuf/runtime/protoimpl"
 	"google.golang.org/protobuf/types/pluginpb"
 
-	"github.com/planetscale/vtprotobuf/generator/pattern"
+	"github.com/19910211/vtprotobuf/generator/pattern"
 )
 
 type ObjectSet struct {

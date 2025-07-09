@@ -60,7 +60,7 @@ The following features can be generated:
 - `unique` is a field option available on strings. If it is set to `true` then all all strings are interned using [unique.Make](https://pkg.go.dev/unique#Make). Go 1.23+ is needed. `unmarshal_unsafe` takes precendence over `unique`. Example usage:
 
 ```
-import "github.com/planetscale/vtprotobuf/vtproto/ext.proto";
+import "github.com/19910211/vtprotobuf/vtproto/ext.proto";
 
 message Label {
     string name  = 1 [(vtproto.options).unique = true];
@@ -106,7 +106,7 @@ message Label {
     package app;
     option go_package = "app";
 
-    import "github.com/planetscale/vtprotobuf/vtproto/ext.proto";
+    import "github.com/19910211/vtprotobuf/vtproto/ext.proto";
 
     message SampleMessage {
         option (vtproto.mempool) = true; // Enable memory pooling
@@ -156,13 +156,13 @@ The `protoc-gen-go-vtproto` compiler does not overwrite any of the default marsh
 
 ### `vtprotobuf` with GRPC
 
-To use `vtprotobuf` with the new versions of GRPC, you need to register the codec provided by the `github.com/planetscale/vtprotobuf/codec/grpc` package.
+To use `vtprotobuf` with the new versions of GRPC, you need to register the codec provided by the `github.com/19910211/vtprotobuf/codec/grpc` package.
 
 ```go
 package servenv
 
 import (
-	"github.com/planetscale/vtprotobuf/codec/grpc"
+	"github.com/19910211/vtprotobuf/codec/grpc"
 	"google.golang.org/grpc/encoding"
 	_ "google.golang.org/grpc/encoding/proto"
 )
@@ -194,12 +194,12 @@ done; \
 
 ### DRPC
 
-To use `vtprotobuf` as a DRPC encoding, simply pass `github.com/planetscale/vtprotobuf/codec/drpc` as the `protolib` flag in your `protoc-gen-go-drpc` invocation.
+To use `vtprotobuf` as a DRPC encoding, simply pass `github.com/19910211/vtprotobuf/codec/drpc` as the `protolib` flag in your `protoc-gen-go-drpc` invocation.
 
 Example:
 
 ```
-protoc --go_out=. --go-vtproto_out=. --go-drpc_out=. --go-drpc_opt=protolib=github.com/planetscale/vtprotobuf/codec/drpc
+protoc --go_out=. --go-vtproto_out=. --go-drpc_out=. --go-drpc_opt=protolib=github.com/19910211/vtprotobuf/codec/drpc
 ```
 
 ### Connect

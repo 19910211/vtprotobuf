@@ -7,7 +7,7 @@ package generator
 import (
 	"fmt"
 
-	"github.com/planetscale/vtprotobuf/vtproto"
+	"github.com/19910211/vtprotobuf/vtproto"
 
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/proto"
@@ -123,7 +123,7 @@ func (p *GeneratedFile) IsLocalField(field *protogen.Field) bool {
 	return p.LocalPackages[pkg]
 }
 
-const vtHelpersPackage = protogen.GoImportPath("github.com/planetscale/vtprotobuf/protohelpers")
+const vtHelpersPackage = protogen.GoImportPath("github.com/19910211/vtprotobuf/protohelpers")
 
 var helpers = map[string]protogen.GoIdent{
 	"EncodeVarint":            {GoName: "EncodeVarint", GoImportPath: vtHelpersPackage},
@@ -139,7 +139,7 @@ func (p *GeneratedFile) Helper(name string) protogen.GoIdent {
 	return helpers[name]
 }
 
-const vtWellKnownPackage = protogen.GoImportPath("github.com/planetscale/vtprotobuf/types/known/")
+const vtWellKnownPackage = protogen.GoImportPath("github.com/19910211/vtprotobuf/types/known/")
 
 var wellKnownTypes = map[protoreflect.FullName]protogen.GoIdent{
 	"google.protobuf.Any":         {GoName: "Any", GoImportPath: vtWellKnownPackage + "anypb"},
