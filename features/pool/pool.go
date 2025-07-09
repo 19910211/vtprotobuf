@@ -56,13 +56,11 @@ func (p *pool) message(message *protogen.Message) {
 		if field.Desc.IsList() {
 			switch field.Desc.Kind() {
 			case protoreflect.MessageKind, protoreflect.GroupKind:
-				p.P(`for i, mm := range m.`, fieldName, `{`)
+				p.P(`for _, mm := range m.`, fieldName, `{`)
 				if p.ShouldPool(field.Message) {
-					p.P(`mm.ReturnToVTPool()`)
-					p.P(`m.`, fieldName, `[i] = nil`)
+					p.P(`mm.ResetVT()`)
 				} else {
 					p.P(`mm.Reset()`)
-					p.P(`m.`, fieldName, `[i] = nil`)
 				}
 				p.P(`}`)
 			case protoreflect.BytesKind, protoreflect.StringKind:
